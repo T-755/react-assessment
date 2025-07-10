@@ -1,5 +1,3 @@
-import { userAtom } from '@/store/auth.atom';
-import { useAtom } from 'jotai';
 import React, { PropsWithChildren } from 'react';
 import AppSidenav from './AppSideNav';
 import { ModeToggler } from './ModeToggler';
@@ -7,8 +5,6 @@ import { Separator } from './ui/separator';
 import { SidebarInset, SidebarProvider, SidebarTrigger } from './ui/sidebar';
 
 const DashboardScaffold: React.FC<PropsWithChildren> = ({ children }) => {
-	const [session] = useAtom(userAtom);
-
 	return (
 		<>
 			<SidebarProvider defaultOpen={true}>

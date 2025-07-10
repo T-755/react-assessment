@@ -14,7 +14,6 @@ import { StorageUtil } from '@/lib/storage.util';
 import { fetchME } from '@/store/auth.atom';
 import { Link, useRouter } from '@tanstack/react-router';
 import { HomeIcon, LogOutIcon } from 'lucide-react';
-import { useState } from 'react';
 import { useAppConfirm } from './AppConfirm';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import { Button } from './ui/button';
@@ -26,7 +25,6 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from './ui/dropdown-menu';
-const organizationUID = localStorage.getItem('orgUID');
 const items = [
 	{
 		title: 'Projects',
@@ -39,16 +37,6 @@ const AppSidenav = () => {
 	const appConfirmHandle = useAppConfirm();
 	const router = useRouter();
 	const { state } = useSidebar();
-	const [expandedItems, setExpandedItems] = useState<Record<string, boolean>>(
-		{}
-	);
-
-	const toggleItem = (title: string) => {
-		setExpandedItems((prev) => ({
-			...prev,
-			[title]: !prev[title],
-		}));
-	};
 
 	// Add inside AppSidenav before return
 	const pathname = router.state.location.pathname;
